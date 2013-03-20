@@ -1,1 +1,0 @@
-A website for Association of Chinese comic dialogue (Association du dialogue comique chinois) Project for SI 664.
