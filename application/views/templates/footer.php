@@ -1,9 +1,10 @@
   <div class="footer">
-    <p>Foother goes here</p>
+  
+    <p>Footer goes here</p>
     
   </div>
 
-</div>
+</div>  <!--ends class="container"-->
   
 </body>
 </html>
