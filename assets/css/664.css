@@ -43,15 +43,15 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 .container {
 	width: 800px;
 	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
-	border-style:solid;
+    border-style:solid;
 }
 
 /* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
 .header {
 	background-image: url(../element/back+logo.png);
-	width: 800px;
-	height: 158px;
-	margin-bottom: -26px;
+    width: 800px;
+    height: 158px;
+    margin-bottom: -26px;
 }
 
 a {
@@ -67,34 +67,32 @@ a {
 }
 
 .side_container {
-	margin-top: 18px;
-	/*margin-bottom: -23px;*/
-	/*border-style:solid;*/
-	width: 264px;
-	height: 100%;
+    background-image: url(../element/header_side1.png);
+    height: 23px;
+    width: 264px;
+    margin-bottom: -23px;
 }
 
-#side_block {
-	background: #FFFFFF;
-	opacity: 0.6;
-	height: 23px;
-	width: 264px;
+.side_head {
+	float: left;
+    height: 23px;
+    margin-left: 46px;    
 }
 
-#side_text {
-	position: absolute;
-	width: 212px;
-	margin-left: 46px;
-	margin-top: -23px;
-	border-style:solid;
+.side_content{
+    float: left;
+    width: 202px;
+    height: 100px;
+    border-style:solid;
+    margin-left: 46px; 
+    margin-top: 23px;
 }
 
 .content {
-	position: relative;
 	width: 471px;
-	border-style:solid;
+    border-style:solid;
+    /*margin-top: -105px;*/
 	margin-left: 284px;
-	margin-top: -23px;
 	float: left;
 }
 

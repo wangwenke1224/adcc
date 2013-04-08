@@ -6,9 +6,14 @@
 <title><?php echo $title ?> - ADCC</title>
 <!-- <link href="664.css" rel="stylesheet" type="text/css" /> -->
 <?php
-    echo "\n". link_tag('assets/css/664.css');
+  $this->load->helper('html');
+  echo "\n". link_tag('assets/css/664.css');
     // echo "\n". link_tag('assets/stylesheets/'. $theme .'.css');
+  $this->load->helper('url');
 ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
 </head>
 
 <body>
@@ -19,11 +24,11 @@
   
   <div class="menu">
     <ul class="nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Upcoming Events</a></li>
-      <li><a href="#">News</a></li>
+      <li><a href="<?php echo site_url() ?>">Home</a></li>
+      <li><a href="<?php echo site_url('events') ?>">Upcoming Events</a></li>
+      <li><a href="<?php echo site_url('news') ?>">News</a></li>
       <li><a href="#">Media</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="<?php echo site_url('about') ?>">About</a></li>
+      <li><a href="<?php echo site_url('contact') ?>">Contact</a></li>
     </ul> 
   </div>
