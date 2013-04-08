@@ -1,13 +1,14 @@
 <div class="side_container">
 
-	<div class="side_head">
+	<div id="side_block"></div>
+	
+	<div id="side_content">
+	
 		<p>Calendar</p>
-	</div>
 
-	<div class="side_content">
-	  <?php
+		<?php
 		echo $this->calendar->generate();
-	  ?>
+		?>
 	</div>
 </div>
   

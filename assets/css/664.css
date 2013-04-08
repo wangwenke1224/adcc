@@ -1,11 +1,10 @@
 @charset "utf-8";
 body {
 	font: 100%/1.4 “Myriad Pro”, Arial, Helvetica, sans-serif;
-    font size: "12";
-	background-image: url(../element/background.png);
+	font-size: "12";
+	background-color: #f6edd5;
 	margin: 0;
 	padding: 0;
-	/* [disabled]color: #000; */
 }
 
 ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
@@ -14,8 +13,7 @@ ul, ol, dl { /* Due to variations between browsers, it's best practices to zero 
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    font: 100%/1.4 “Myriad Pro”, Arial, Helvetica, sans-serif;
-    font size: "14";
+	font: Myriad Pro, Arial, Helvetica, sans-serif;
 	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
 	padding-right: 0px;
 	padding-left: 0px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
@@ -41,85 +39,81 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 
 /* ~~this fixed width container surrounds the other divs~~ */
 .container {
-	width: 800px;
+	width: 960px;
 	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
-    border-style:solid;
+	/*border-style:solid;*/
 }
 
 /* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
 .header {
-	background-image: url(../element/back+logo.png);
-    width: 800px;
-    height: 158px;
-    margin-bottom: -26px;
-}
-
-a {
-    display:block;
-    width:30px;
+	background-image: url(../element/header.png);
+	width: 960px;
+	height: 256px;
+	margin-bottom: -125px;
 }
 
 .menu {
-    width: 471px;
-    background: transparent;
-    height: 30px;
-    margin-left: 284px;
+	width: 677px;
+	background: transparent;
+	height: 30px;
+	margin-left: 284px;
 }
 
 .side_container {
-    background-image: url(../element/header_side1.png);
-    height: 23px;
-    width: 264px;
-    margin-bottom: -23px;
+	margin-top: 18px;
+	/*margin-bottom: -23px;*/
+	/*border-style:solid;*/
+	width: 264px;
+	height: 100%;
 }
 
-.side_head {
-	float: left;
-    height: 23px;
-    margin-left: 46px;    
+#side_block {
+	background: #FFFFFF;
+	opacity: 0.6;
+	height: 23px;
+	width: 264px;
 }
 
-.side_content{
-    float: left;
-    width: 202px;
-    height: 100px;
-    border-style:solid;
-    margin-left: 46px; 
-    margin-top: 23px;
+#side_content {
+	position: absolute;
+	width: 212px;
+	margin-left: 46px;
+	margin-top: -23px;
+	/*border-style:solid;*/
 }
 
 .content {
-	width: 471px;
-    border-style:solid;
-    /*margin-top: -105px;*/
+	width: 631px;
 	margin-left: 284px;
+	margin-top: -23px;
 	float: left;
 }
 
 ul {
-    border-style:solid;
+	/*border-style:solid;*/
 }
 
 ul.nav {
 	list-style: none; /* this removes the list marker */
 	position: absolute;
+	text-align: center;
 }
 
 ul.nav li {
+	display: inline;
 	float: left;
-	font-size: 12px;
-	text-align: left;
-	width: 78.5px;
+	width: 105px;
 	position: relative;
+	white-space: nowrap;
 }
 
 ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
-	padding: 5px 5px 5px 15px;
-	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	display: inline-block;
+	/*padding: 5px 5px 5px 5px;*/
 	text-decoration: none;
 	background-color: transparent;
 	position: relative;
-    color: #000000;
+	color: #000000;
 }
 
 ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
@@ -128,10 +122,23 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 }
 
 .footer {
-	padding: 10px 0;
-	background-color: #CCC49F;
+	float: bottom;
+	width: 960px;
+	height: 60px;
+	padding: 15px 0;
+	background: #FFFFFF;
+	/*opacity: 0.6;*/
+	/*border-style:solid;*/
 	position: relative;/* this gives IE6 hasLayout to properly clear */
 	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+}
+
+#footer_text {
+	position: relative;
+	width: 212px;
+	margin-left: 46px;
+	font-size: "10";
+	/*border-style:solid;*/
 }
 
 
