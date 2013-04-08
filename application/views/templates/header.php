@@ -27,7 +27,7 @@
       <li><a href="<?php echo site_url() ?>">Home</a></li>
       <li><a href="<?php echo site_url('events') ?>">Upcoming Events</a></li>
       <li><a href="<?php echo site_url('news') ?>">News</a></li>
-      <li><a href="#">Media</a></li>
+      <li><a href="<?php echo site_url('media') ?>">Media</a></li>
       <li><a href="<?php echo site_url('about') ?>">About</a></li>
       <li><a href="<?php echo site_url('contact') ?>">Contact</a></li>
     </ul> 
