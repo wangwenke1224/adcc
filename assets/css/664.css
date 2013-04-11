@@ -74,6 +74,14 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	width: 264px;
 }
 
+#side_block2 {
+	background: #FFFFFF;
+	opacity: 0.6;
+	height: 23px;
+	width: 264px;
+	margin-top: 210px;
+}
+
 #side_content {
 	position: absolute;
 	width: 212px;
@@ -82,10 +90,55 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	/*border-style:solid;*/
 }
 
+#side_content2 {
+	position: absolute;
+	width: 212px;
+	margin-left: 46px;
+	margin-top: -23px;
+	/*border-style:solid;*/
+}
+
+ul.media_nav{
+	float: left;
+	margin-left: -238px;
+	margin-top: 10px;
+}
+ul.media_nav li{
+	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	box-shadow:inset 0px 0px 0px 0px #ffffff;
+	background-color:#f2f2f2;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #a3a3a3;
+	display:block;
+	color:#000000;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	padding:16px 92px;
+	text-decoration:none;
+	text-shadow:1px 0px 0px #ffffff;
+}
+ul.media_nav li:hover {
+	background-color:#dedede;
+}
+ul.media_nav li:active {
+	top:1px;
+}
+
 .content {
 	width: 631px;
 	margin-left: 284px;
 	margin-top: -23px;
+	float: left;
+}
+
+.media_content {
+	width: 631px;
+	margin-left: 284px;
+	margin-top: -316px;
 	float: left;
 }
 
