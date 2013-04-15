@@ -31,6 +31,7 @@
 		<input type="text" name="date" value="" placeholder="Date of Event" class="datepicker" />
 
 		<label for="intro">Introduction</label>
+		
 		<textarea name="text"></textarea><br />
 		<h3>Programs</h3>
 		<label for="program">Program</label>

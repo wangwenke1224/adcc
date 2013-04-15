@@ -26,7 +26,7 @@
 		}
 
 	}
-?>
 
-<!--/* End of file pages.php */-->
-<!--/* Location: ./application/controllers/pages.php */-->
+
+/* End of file pages.php */
+/* Location: ./application/controllers/pages.php */

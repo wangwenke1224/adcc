@@ -42,6 +42,7 @@ $route['events/create'] = 'events/create';
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
 
+$route['news/delete/(:any)'] = 'news/delete/$1';
 $route['news/create'] = 'news/create';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';

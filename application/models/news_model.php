@@ -11,7 +11,7 @@ class News_model extends CI_Model {
 	{
 		if ($id === FALSE)
 		{
-			$query = $this->mongo_db->get('news');
+			$query = $this->mongo_db->order_by(array('date' => -1))->get('news');
 			return $query;
 		}
 		
@@ -22,14 +22,50 @@ class News_model extends CI_Model {
 	public function set_news()
 	{
 		$this->load->helper('url');
+		$date = new MongoDate();
 		
 		$data = array(
 			'title' => $this->input->post('title'),
-			"date" => date('m/d/Y H:M'),
+			'date' => $date,
 			'text' => $this->input->post('text')
 		);
 		
 		return $this->mongo_db->insert('news', $data);
 	}
+
+	public function delete_news($id)
+	{	
+		$this->mongo_db->where(array('_id'=> new MongoId($id)))->delete('news');
+	}
+
+    public function insert_comment($id)
+    {
+        if(!empty($_POST))
+        {
+        	$date = new MongoDate();
+            $name = $this->input->post('name');
+            $email    = $this->input->post('email');
+            $text = $this->input->post('text');
+            
+            $commentArray = array(
+              'name' =>   $name,
+              'date' => $date,
+              'email'    =>   $email,
+              'text'  =>   $text              
+            );
+            $this->mongodb->where(array('_id'=> new MongoId($id)))->push('comments',$commentArray)->update('news');
+            return $this->returnMarkup($name,$email,$text);
+         }
+       
+        
+    }
+     private function returnMarkup($name,$email,$text)
+     {
+         
+         return '<div><p>Username : '.$name.'</p>
+                <p>email : '.$email.'</p>
+                <p>Message : '.$text.'</p>
+        </div>';
+     }
 
 }

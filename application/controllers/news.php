@@ -1,10 +1,17 @@
 <?php
+// ini_set('display_errors', 'On');
+// ini_set('display_errors', 'On');
+// error_reporting(E_ALL | E_STRICT);
+// require_once('FirePHPCore/FirePHP.class.php');
+// ob_start();
 class News extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('news_model');
+		$this->load->helper('url');
+		
 	}
 
 	public function index()
@@ -18,6 +25,7 @@ class News extends CI_Controller {
 	}
 	public function view($id)
 	{
+		$this->load->library('form_validation');
 		$data['news_item'] = $this->news_model->get_news($id);
 		if (empty($data['news_item']))
 		{
@@ -30,9 +38,35 @@ class News extends CI_Controller {
 		$this->load->view('news/view', $data);
 		$this->load->view('templates/footer');
 	}
+
+	public function delete($id)
+	{
+		// $firephp = FirePHP::getInstance(true);
+ 
+		// $var = 'outside';
+		 
+		// $firephp->log($var,'test');
+		if(isset($id) && !empty($id))
+        {
+        	//echo "inside";
+			$this->news_model->delete_news($id);
+		}
+	}
 	
 	public function create()
 	{
+		$this->tinyMce = '
+			<!-- TinyMCE -->
+			<script type="text/javascript" src="'. base_url().'assets/js/tiny_mce/tiny_mce.js"></script>
+			<script type="text/javascript">
+				tinyMCE.init({
+					// General options
+					mode : "textareas",
+					theme : "simple"
+				});
+			</script>
+			<!-- /TinyMCE -->
+			';
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
@@ -52,7 +86,14 @@ class News extends CI_Controller {
 		else
 		{
 			$this->news_model->set_news();
-			$this->load->view('news/success');
+
+			redirect('news/', 'refresh');
 		}
 	}
+
+	//insert comments
+	function insertcomments($id)
+    {
+    	echo $this->news->insert_comment($id);
+    }
 }

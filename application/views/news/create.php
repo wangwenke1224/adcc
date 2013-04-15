@@ -1,3 +1,4 @@
+<?php echo $this->tinyMce;?>
 <div class="side_container">
 
   <div class="side_head">
@@ -22,12 +23,8 @@
 	<input type="input" name="title" /><br />
 
 	<label for="text">Text</label>
-	<!-- <textarea name="text"> -->
-	<?php 
-	$this->load->helper('url');
-	echo $this->load->view('wysiwyg', base_url(), true); 
-	?>
-	<!-- </textarea> -->
+	<textarea name="text" class="tinyMce">
+	</textarea>
 	<br />
 	
 	<input type="submit" name="submit" value="Create news item" /> 
