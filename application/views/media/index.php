@@ -26,23 +26,46 @@
 </div>
   
 <div class="media_content">
-	<a href="media/create">Add</a>
+	<!--not using route to avoid repeated url-->
+	<?php $this->load->helper('url');
+		echo anchor('media/create', 'Add') ?>
 	
-	<p>
-	<iframe height=616.15 width=631 src="http://player.youku.com/embed/XNDk5MjU2NTY0" frameborder=0 allowfullscreen></iframe>
-	</p>
+	<div id = "gallery">
+		<?php if(isset($images) && count($images)):
+			foreach($images as $image): ?>
+			<div class="thumb">
+				<a href="<?php echo $image['url']; ?>">
+					<img src="<?php echo $image['thumb_url']; ?>" />
+				</a>
+			</div>
+		
+		<?php endforeach; else: ?>
+			<div id="blank_gallery"> Please upload an Image </div>
+		<?php endif; ?>
+	</div>
 	
+	
+	
+	<!--'media' contains all retrieved db data, then we call as needed-->
 	<?php foreach ($media as $media_item): ?>
 
 	    <h2><?php echo $media_item['name'] ?></h2>
 	    
+	    <!--actors is an array-->
 	    <div id="info">
-	    	<?php echo $media_item['actors'] ?>
+	    <p><b>Actors:</b>
+	    	<?php foreach($media_item['actors'] as $actor) {
+			echo '<br \>';
+			echo $actor;
+		} ?> </p>
 	    </div>
 	    
 	    <div id="main">
 	        <?php echo $media_item['link'] ?>
 	    </div>
+	    
+	    <br>
+	    <br>
 
 	<?php endforeach ?>
     

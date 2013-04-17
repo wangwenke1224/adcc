@@ -11,17 +11,21 @@
   </div>
       
   <div class="content">
-  	<p><a href="<?php 
-  		$this->load->helper('url');
-  		echo site_url('media');
-  	?>">Back to the list</a></p>
+  
+  	<p><a href="<?php
+	    $this->load->helper('url');
+	    echo site_url('media');
+	    ?>">Back to the list</a></p>
+	    
 		<?php
+		    //loading from function view($id)
 		echo '<h2>'.$media_item[0]['name'].'</h2>';
 		echo date('m/d/Y', $media_item[0]['date']->sec);
 		echo "<br>";
 		echo $media_item[0]['intro']; ?>
 		<br> 
 		<br>
+
 		<table>
 			<tr><th>Programs</th></tr>
 		<?php
