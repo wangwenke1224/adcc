@@ -5,6 +5,7 @@ class Media extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('media_model');
+		$this->load->model('gallery_model');
 	}
 	
 	// to view all media
@@ -12,6 +13,7 @@ class Media extends CI_Controller {
 	{
 		//all the data is retireved to 'media' and later called by Index view
 		$data['media'] = $this->media_model->get_media();
+		$data['images'] = $this->gallery_model->get_images();
 		$data['title'] = 'Media';
 	  	
 		$this->load->view('templates/header', $data);
@@ -47,25 +49,18 @@ class Media extends CI_Controller {
 		else {
 			$data['media'] = $this->media_model->set_media();
 			$data['media'] = $this->media_model->get_media();
+			if ($this->input->post('upload')) {
+				// let the method do_upload inside Gallery_model do all the work
+				$this->gallery_model->do_upload();
+			}
+			$data['images'] = $this->gallery_model->get_images();
 			
 			$this->load->view('templates/header');
 			$this->load->view('media/index', $data);
 			$this->load->view('templates/footer');
 		}
-	//}
-	
-	//public function gallery() {
+
 		
-		$this->load->model('gallery_model');
-		
-		if ($this->input->post('upload')) {
-		    // let the method do_upload inside Gallery_model do all the work
-		    $this->gallery_model->do_upload();
-		}
-		
-		$data['images'] = $this->gallery_model->get_images();
-		
-		$this->load->view('media/index', $data);
 	}
 	
 	// to view specific media item

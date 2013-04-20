@@ -33,6 +33,7 @@
 	<div id = "gallery">
 		<?php if(isset($images) && count($images)):
 			foreach($images as $image): ?>
+			
 			<div class="thumb">
 				<a href="<?php echo $image['url']; ?>">
 					<img src="<?php echo $image['thumb_url']; ?>" />
@@ -43,7 +44,6 @@
 			<div id="blank_gallery"> Please upload an Image </div>
 		<?php endif; ?>
 	</div>
-	
 	
 	
 	<!--'media' contains all retrieved db data, then we call as needed-->

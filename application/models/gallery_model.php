@@ -14,24 +14,27 @@ class Gallery_model extends CI_Model {
 		// APPPATH sets to the path of application folder
 		// realpath returns full path to folder
 		$this->gallery_path=realpath(APPPATH.'../uploads');
-		$this->gallery_path_url=base_url().'images/';
+		//$this->load->helper('url');
+		//$this->gallery_path_url=base_url().'images/';
 	}
 
 	public function do_upload() {
 		
-		$config = array(
+		$config1 = array(
 			'allowed_types' => 'jpg|jpeg|gif|png',
-			'upload_path' => $this->gallery_path,
-			'max_size' => 2000
+			'upload_path' => $this->gallery_path . '/images',
+			'max_size' => 2048
 		);
 		
-		$this->load->library('upload', $config);
+		$this->load->library('upload');
+		$this->upload->initialize($config1);
 		$this->upload->do_upload();
+		
 		// fetch data of uploaded image
 		// returns array, includes full_path key
 		$image_data = $this->upload->data();
 		
-		$config = array(
+		$config2 = array(
 			// read image, process to create thumbnail
 			// full path to uploaded file
 			'source_image' => $image_data['full_path'],
@@ -42,22 +45,22 @@ class Gallery_model extends CI_Model {
 			'height' => 100
 		);
 		
-		$this->load->library('image_lib', $config);
+		$this->load->library('image_lib', $config2);
 		// resize operation
 		$this->image_lib->resize();
 	}
 	
 	public function get_images() {
 		
-		$files = scandir($this->gallery_path);
+		$files = scandir($this->gallery_path . '/thumbs');
 		$files = array_diff($files, array('.', '..', 'thumbs'));
 		
 		$images = array();
 		
 		foreach ($files as $file) {
 			$images[] = array(
-				'url'=>$this->gallery_path_url.$file,
-				'thumb_url'=>$this->gallery_path_url.'thumbs/'.$file
+				'url'=>$this->gallery_path.$file,
+				'thumb_url'=>$this->gallery_path.'thumbs/'.$file
 			);
 		}
 		
