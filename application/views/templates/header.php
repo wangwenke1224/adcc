@@ -8,12 +8,8 @@
 <?php
   $this->load->helper('html');
   echo "\n". link_tag('assets/css/custom-theme/jqueryui.css');
-    // echo "\n". link_tag('assets/stylesheets/'. $theme .'.css');
-  $this->load->helper('url');
-?>
-<?php
-  $this->load->helper('html');
   echo "\n". link_tag('assets/css/664.css');
+  echo "\n". link_tag('assets/css/news.css');
     // echo "\n". link_tag('assets/stylesheets/'. $theme .'.css');
   $this->load->helper('url');
 ?>

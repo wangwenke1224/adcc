@@ -129,9 +129,10 @@ ul.media_nav li:active {
 }
 
 .content {
-	width: 631px;
+	width: 676px;
 	margin-left: 284px;
 	margin-top: -23px;
+	margin-bottom: 50px;
 	float: left;
 }
 

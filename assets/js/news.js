@@ -30,11 +30,11 @@ $(document).ready(function(){
     $('.submitComment').submit(function(){
         id = $('#id').val();
         $.ajax({
-            url : baseurl + 'index.php/news/insertcomments'+id,
-            data : $(' form').serialize(),
+            url : baseurl + 'index.php/news/insertcomments/'+id,
+            data : $('form').serialize(),
             type: "POST",
             success : function(comment){
-                
+                $('#commentForm')[0].reset();
                 $(comment).hide().insertBefore('#insertbeforMe').slideDown('slow');
             }
         })

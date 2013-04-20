@@ -33,6 +33,25 @@ class News_model extends CI_Model {
 		return $this->mongo_db->insert('news', $data);
 	}
 
+	public function update_news($id)
+    {
+        if(!empty($_POST))
+        {
+        	$date = new MongoDate();
+            $title = $this->input->post('title');
+            $text = $this->input->post('text');
+            
+            $data = array(
+              'title' =>   $title,
+              'date' => $date,
+              'text'  =>   $text              
+            );
+            return $this->mongo_db->where(array('_id'=> new MongoId($id)))->set($data)->update('news');
+         }
+       
+        
+    }
+
 	public function delete_news($id)
 	{	
 		$this->mongo_db->where(array('_id'=> new MongoId($id)))->delete('news');
@@ -53,19 +72,19 @@ class News_model extends CI_Model {
               'email'    =>   $email,
               'text'  =>   $text              
             );
-            $this->mongodb->where(array('_id'=> new MongoId($id)))->push('comments',$commentArray)->update('news');
-            return $this->returnMarkup($name,$email,$text);
+            $this->mongo_db->where(array('_id'=> new MongoId($id)))->push('comments',$commentArray)->update('news');
+            return $this->returnMarkup($name,$date,$text);
          }
        
         
     }
-     private function returnMarkup($name,$email,$text)
+     private function returnMarkup($name,$date,$text)
      {
          
-         return '<div><p>Username : '.$name.'</p>
-                <p>email : '.$email.'</p>
-                <p>Message : '.$text.'</p>
-        </div>';
+         return "<div class='commentItem'>".
+         		"<h4>".$name.' says:</h4>'.
+         		"<h5>".date('m/d/Y H:i',$date->sec)."</h5>".
+         		$text."</div>"."<br>";
      }
 
 }

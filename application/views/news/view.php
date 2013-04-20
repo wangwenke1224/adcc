@@ -15,44 +15,62 @@
 	  		$this->load->helper('url');
 	  		echo site_url('news');
 	  	?>">Back to the list</a></p>
+  	<p><a href="<?php 
+  		$this->load->helper('url');
+  		$item = $news_item[0]['_id'];
+  		echo site_url("news/edit/$item");
+  	?>">Edit</a></p>
+	<div class="newsContent">
 	<?php
 		echo '<h2>'.$news_item[0]['title'].'</h2>';
 		echo date('m/d/Y H:i',$news_item[0]['date']->sec);
 		echo "<br>";
-		echo $news_item[0]['text']; 
+		echo $news_item[0]['text']; ?>
+	</div>
+	<div class="commentsContent">
+	<?php
 		echo "<hr>";
 		echo "<h3>Comments:</h3>";
 		if(isset($news_item[0]['comments']) && !empty($news_item[0]['comments']))
 		{
 			foreach ($news_item[0]['comments'] as $comment)
 			{
-				echo "<p>".$comment['name'].' says:</p>';
-				echo date('m/d/Y H:i',$comment['date']->sec);
-				echo "<br>";
+				echo "<div class='commentItem'>";
+				echo "<h4>".$comment['name'].' says:</h4>';
+				echo "<h5>".date('m/d/Y H:i',$comment['date']->sec)."</h5>";
 				echo $comment['text'];
+				echo "</div>";
+				echo "<br>";
 			}
 		}
 	?>
-	<div class="submitComment" id="insertbeforMe">
+	</div>
+	<div class="submitComment ui-widget-content" id="insertbeforMe">
 		<h3>Leave a Comment</h3>
-
+		<span style="color:#dc4704;">* is required</span>
 		<?php echo validation_errors(); ?>
 
-		<form method="POST" action="">
+		<form id="commentForm" class= "ui-widget" method="POST" action="">
 
 			<label for="name">Name: </label> 
-			<input type="input" name="name" /><br />
+			<input type="input" name="name" required/>
 
-			<label for="email">Email: </label>
-			<input type="input" name="email" /><br />
+			<label for="email">Email: </label> 
+			<input type="input" name="email" required/>
 
-			<label for="text">Comment: </label>
-			<textarea name="text"></textarea>
-			<br />
+			<label for="text">Comment: </label> 
+			<textarea name="text" required></textarea>
+
 			<input type="hidden" value="<?=base_url()?>" id="baseurl"/>
 			<input type="hidden" value="<?=$news_item[0]['_id']?>" id="id"/>
-	        <input type="submit" value="Submit"/>
-	        <input type="reset" value="Reset"/> 
+	        <!-- <input type="submit" value="Submit"/> -->
+	        <!-- <input type="reset" value="Reset"/>  -->
+	        <button type="reset">Reset</button>
+	        <button type="submit">Submit</button>
+	        
+	        <script>
+				$( "button" ).button();
+			</script>
 
 		</form>
 	</div>

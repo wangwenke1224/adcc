@@ -1,0 +1,57 @@
+.commentItem
+{
+	background-color: rgba(255,255,255,0.6);
+	padding: 10px;
+	width: 600px;
+	margin: auto;
+}
+
+.newsContent
+{
+	margin-bottom: 50px;
+}
+
+h3,h4
+{
+	margin-bottom: 1px;
+}
+
+.submitComment
+{
+	margin:0 auto;
+	width:400px;
+	padding:14px;
+	height: 370px;
+}
+
+.submitComment label{
+	display:block;
+	text-align:right;
+	width:140px;
+	float:left;
+}
+
+label:after{
+	content: "*";
+	color:#dc4704;
+	font-size:14px;
+	font-weight:normal;
+	margin-left: 2px;
+	/*width:80px;*/
+}
+.submitComment input, textarea{
+	float:left;
+	padding:4px 2px;
+	width:200px;
+	margin:2px 0 20px 10px;
+}
+
+.submitComment textarea{
+	height: 120px;
+}
+
+button
+{
+	float: right;
+	margin-left: 5px;
+}

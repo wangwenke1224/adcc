@@ -5,6 +5,7 @@ class Events extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('event_model');
+		$this->load->helper('url');
 	}
 
 	public function index()
@@ -12,7 +13,11 @@ class Events extends CI_Controller {
 		$data['event'] = $this->event_model->get_event();
 		$data['title'] = 'Upcoming events';
 
-	  	$this->load->library('calendar');
+		$prefs=array(
+				'show_next_prev' => TRUE,
+				'next_prev_url' => site_url('events')
+			);
+	  	$this->load->library('calendar',$prefs);
 	  	
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/index', $data);

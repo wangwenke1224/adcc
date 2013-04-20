@@ -30,8 +30,6 @@
 
             ?>
             <p><a href="news/<?=$news_item['_id']?>">More&gt;&gt;</a></p>
-            <br>
-            <br>
             <p><a href="news/<?=$news_item['_id']?>">Comments(<?php
                 if(isset($news_item['comments']) && !empty($news_item['comments']))
                 {

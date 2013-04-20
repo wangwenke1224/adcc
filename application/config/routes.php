@@ -38,10 +38,22 @@
 |
 */
 
+$route['contact'] = 'contact';
+$route['contact/success']='contact/success';
+
+
+$route['about'] = 'about';
+$route['about/view'] = 'about/view';
+$route['about/pending_view'] = 'about/pending_view';
+$route['about/edit/(:any)'] = 'about/edit/$1';
+$route['about/edit_success'] = 'about/edit_success';
+
 $route['events/create'] = 'events/create';
 $route['events/(:any)'] = 'events/view/$1';
 $route['events'] = 'events';
 
+$route['news/insertcomments/(:any)'] = 'news/insertcomments/$1';
+$route['news/edit/(:any)'] = 'news/edit/$1';
 $route['news/delete/(:any)'] = 'news/delete/$1';
 $route['news/create'] = 'news/create';
 $route['news/(:any)'] = 'news/view/$1';
