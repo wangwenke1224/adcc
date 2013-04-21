@@ -29,26 +29,35 @@
        <!--  <?php //echo validation_errors(); ?>
         <?php //echo form_open('about/edit') ?> -->
         
-        <label for="status">Status<span calss="small"></span></label> 
-        <input type="text" name="status" 
-        	// value="<?php 
-        	// if(isset ($actors[0]['status'])){
-        	// echo $actors[0]['status'];}
-        	// else{
-        	// echo "";}?>"/><br></br>
-
-
-
-        <label for="name">Name<span calss="small"></span></label> 
+        <label>ID: <?php echo $actors[0]['_id']?></label><br></br>
+       <!--  <label for="name">Name<span calss="small"></span></label> 
         <input type="input" name="name" value="<?php echo $actors[0]['fullname']?>"/> <br></br>
+ -->
 
+        <label for="status">Status<span calss="small"></span></label> 
+        <select>
+            <option name="status" value="Enrolled" selected=
+                <?if(isset ($actors[0]['status'])){
+                    if ($actors[0]['status']=='Enrolled')
+                    {echo "selected";}
+                ;}?>>Enrolled</option>
+            <option name="status" value="Pending" selected= 
+                <?if(isset ($actors[0]['status'])){
+                    if ($actors[0]['status']=='Pending')
+                    {echo "selected";}
+                ;}?>>Pending</option>
+        </select><br></br></h3>
+
+
+
+     
         <label for="firstname">First Name<span calss="small"></span></label> 
         <input type="input" name="firstname" 
         	value="<?php 
         	if(isset ($actors[0]['firstname'])){
         	echo $actors[0]['firstname'];}
         	else{
-        	echo "";}?>"/> <br></br>
+        	echo "";}?>" required/> <br></br>
 
 		<label for="lastname">Last Name<span calss="small"></span></label> 
         <input type="input" name="lastname" 
@@ -146,16 +155,18 @@
         	 echo "";}*/?>" /><br></br>
 
         <label for="resume">Resume<span calss="small"></span></label> 
-        <input type="text" name="resume" 
-        	value="<?php 
+        <input type="file" name="resume" 
+        	title="<?php 
         	if(isset ($actors[0]['resume'])){
         	echo $actors[0]['resume'];}
         	else{
         	echo "";}?>"/><br></br>
 
         <label for="img">Image<span calss="small"></span></label> 
-        <input type="text" name="img" 
-        	value="<?php 
+        
+
+        <input type="file" name="img" 
+        	title="<?php 
         	if(isset ($actors[0]['img'])){
         	echo $actors[0]['img'];}
         	else{

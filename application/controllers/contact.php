@@ -15,8 +15,16 @@ class Contact extends CI_Controller {
 		
 		$data['title'] = 'Contact';
 
-		$this->form_validation->set_rules('name', 'Name', 'required');
+		//add for upload resume
+		$config['upload_path'] = 'assets/media';
+		$config['allowed_types'] = 'pdf|doc|docs';
+		$this->load->library('upload', $config);
+
+
+		$this->form_validation->set_rules('firstname', 'Firstname', 'required');
+		$this->form_validation->set_rules('lastname', 'Lastname', 'required');
 		$this->form_validation->set_rules('contact', 'Contact', 'required');
+		$this->form_validation->set_rules('resume', 'Resume', 'required');
 
 		if ($this->form_validation->run() === FALSE)
 		{
@@ -28,6 +36,12 @@ class Contact extends CI_Controller {
 		else
 		{
 			$this->contact_model->set_contact();
+
+			// if ($this->input->post('submit')) {
+			// 	// let the method do_upload inside Gallery_model do all the work
+			// 	$this->contact_model->do_upload();
+			// }
+			//$data['images'] = $this->contact_model->get_images();
 			
 			$this->load->view('templates/header', $data);
 			$this->load->view('contact/success', $data);
@@ -39,28 +53,7 @@ class Contact extends CI_Controller {
 		}
 	}
 
-	/*function do_upload()
-	{
-		$config['upload_path'] = 'assets/uploads/';
-		$config['allowed_types'] = 'pdf|docs|doc';
-		$config['max_size']	= '100';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
-
-		$this->load->library('upload', $config);
-		if ( ! $this->upload->do_upload())
-		{
-			$error = array('error' => $this->upload->display_errors());
-
-			$this->load->view('contact/index', $error);
-		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-
-			$this->load->view('contact/success', $data);
-		}
-	}*/
+	
 
 
 }

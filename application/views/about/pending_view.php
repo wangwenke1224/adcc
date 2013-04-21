@@ -66,11 +66,23 @@
                  
                 ">Edit</a></p>
 
-              
+            <p><a href="<?=$actors_item['_id']?>" class="deleteActors">Delete</a><p>
+               
             <hr>       
   <?php endforeach ?>
         </div>
-      </div>
+
+      <input type="hidden" value="<?=base_url()?>" id="baseurl"/>
+    <!-- dialog box -->
+    <div class="deleteActorsConfirm" title="Confirm">
+        <p>Are you sure?</p>
+        
+    </div>
+    <!-- end dialog box -->
+    <script type="text/javascript" src="<?=base_url()?>assets/js/actors.js"></script>
+
+</div>
+
   
 
  

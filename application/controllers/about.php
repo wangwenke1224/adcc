@@ -23,7 +23,7 @@ class About extends CI_Controller {
 		$id = "all_actors";
 		$data['actors'] = $this->about_model->get_actors($id);
 		$data['media'] = $this->about_model->get_media($id);
-		// $this->load->helper('video');
+		$this->load->helper('video');
 		$data['title'] = 'About us';
 
 		$this->load->view('templates/header', $data);
@@ -36,7 +36,7 @@ class About extends CI_Controller {
 		$id = "all_actors";
 		$data['actors'] = $this->about_model->get_actors($id);
 		$data['media'] = $this->about_model->get_media($id);
-		// $this->load->helper('video');
+		$this->load->helper('video');
 		$data['title'] = 'About us';
 
 		$this->load->view('templates/header', $data);
@@ -66,7 +66,7 @@ class About extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('templates/header', $data);	
+			$this->load->view('templates/header');	
 			$this->load->view('about/edit', $data);
 			$this->load->view('templates/footer');
 			
@@ -74,8 +74,7 @@ class About extends CI_Controller {
 		else
 		{
 			
-			// $data['update_data']=
-			$this->about_model->set_about($id);
+			$data['update_data']=$this->about_model->set_about($id);
 			
 
 			$this->load->view('templates/header', $data);
@@ -106,55 +105,7 @@ class About extends CI_Controller {
 
 
 
-	/*public function delete($id)
-	{
-		// $firephp = FirePHP::getInstance(true);
- 
-		// $var = 'outside';
-		 
-		// $firephp->log($var,'test');
-		if(isset($id) && !empty($id))
-        {
-        	//echo "inside";
-			$this->about_model->delete_actors($id);
-		}
-	}*/
 
-
-
-
-	/*public function edit()
-	{
-		$data['actors'] = $this->about_model->download_actors();
-		//$this->load->helper('video');
-		$data['title'] = 'About us- Edit Actors';
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('about/edit', $data);
-		$this->load->view('templates/footer');
-	}
-*/
-
-
-/*	public function del($id)
-	{
-   		$this->load->library('table');
-		$this->load->helper('html');	
-		$this->load->model('about_model');
-
-		if($id==$edit_id){
- 	  		$this->about_model->delete($id);
-		}
-
-		$data = $this->about_model->general();
-		$data['query'] = $this->books_model->books_getall();
-	
-		$this->load->view('templates/header', $data);
-		$this->load->view('about/view', $data);
-		$this->load->view('templates/footer'); 
- }*/
-
-	
 
 
 

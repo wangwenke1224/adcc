@@ -16,6 +16,7 @@
 
     <div class="content">
     
+     
       <h1>Recruitment Information</h1>  
       <h2>Introduction</h2>
       <p>We are going to invite and recruit people who love Xiangsheng and love to perform on the stage to join the association</p>
@@ -30,19 +31,22 @@
 
         <?php echo validation_errors(); ?>
         <?php echo form_open('contact/create') ?>
-        <label for="name">Name<span calss="small"></span></label> 
-        <input type="input" name="name" /> <br></br>
+        <!-- <label for="name">Name<span calss="small"></span></label> 
+        <input type="input" name="name" /> <br></br> -->
 
-        <label for="firstname">Firstname<span calss="small"></span></label> 
+        <label for="firstname">Firstname <span calss="small"></span></label> 
         <input type="input" name="firstname" /> <br></br>
 
-        <label for="contact">Contact<span calss="small"></span></label> 
-        <input type="email" name="contact" value="applicant@xiangsheng.com" /><br></br>
+        <label for="lastname">Lastname <span calss="small"></span></label> 
+        <input type="input" name="lastname" /> <br></br>
 
-        <label for="dob">Birthday<span calss="small"></span></label> 
+        <label for="contact">Contact Email <span calss="small"></span></label> 
+        <input type="email" name="contact" value="" /><br></br>
+
+        <label for="dob">Birthday <span calss="small"></span></label> 
         <input type="date" name="dob" /><br></br>
 
-        <label for="gender">Gender<span calss="small"></span></label> 
+        <label for="gender">Gender <span calss="small"></span></label> 
         <input type="radio" name="gender" value="M"> Male
         <input type="radio" name="gender" value="F"> Female
         <input type="radio" name="gender" value="O"> Other<br></br>
@@ -52,14 +56,28 @@
         <input type="checkbox" name="type[]" value="two"> Two Performers
         <input type="checkbox" name="type[]" value="multi"> Multi-players<br></br>
 
-        <label for="video_link">Video Link<span calss="small"></span></label> 
+        <label for="video_link">Video Link <span calss="small"></span></label> 
         <input type="url" name="video_link" /><br></br>
         
-        <label for="intro">Introduction Letter<span class="small">Maximum: 150 words</span></label> 
+        <label for="intro">Introduction Letter <span class="small">Maximum: 150 words</span></label> 
         <textarea name="intro" cols="25" rows="5" /></textarea><br></br>
 
-        <label for="resume">Resume<span calss="small"></span></label> 
-        <input type="file" name="resume" /><br></br>
+        <label for="resume">Resume <span calss="small"></span></label> 
+        <input type="file" name="resume"/><br></br>
+
+        <?php
+            if ($_FILES["file"]["error"] > 0){
+　           echo "Error: " . $_FILES["file"]["error"];
+            }else{
+            echo "file_name: " . $_FILES["file"]["name"]."<br/>";
+            echo "file_type: " . $_FILES["file"]["type"]."<br/>";
+            echo "file_size: " . ($_FILES["file"]["size"] / 1024)." Kb<br />";
+            echo "temp_name: " . $_FILES["file"]["tmp_name"];
+            }
+
+            move_uploaded_file($_FILES["file"]["tmp_name"],realpath(APPPATH.'../assets/uploads/resumes').$_FILES["file"]["name"]);
+            ?>
+
         
        <br />
   
