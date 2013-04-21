@@ -35,13 +35,13 @@
  -->
 
         <label for="status">Status<span calss="small"></span></label> 
-        <select>
-            <option name="status" value="Enrolled" selected=
+        <select name="status">
+            <option value="Enrolled"
                 <?if(isset ($actors[0]['status'])){
                     if ($actors[0]['status']=='Enrolled')
                     {echo "selected";}
                 ;}?>>Enrolled</option>
-            <option name="status" value="Pending" selected= 
+            <option value="Pending" 
                 <?if(isset ($actors[0]['status'])){
                     if ($actors[0]['status']=='Pending')
                     {echo "selected";}
@@ -76,8 +76,7 @@
         	echo "";}?>" }/><br></br>
 
         <label for="dob">Birthday<span calss="small"></span></label> 
-        <input type="date" name="dob" 
-        	value=""/><br></br>
+        <input type="text" name="dob" value="" placeholder="MM/DD/YYYY" class="datepicker" /> <br><br>
 
         	<?/*php 
         		if(isset ($actors[0]['dob'])){
@@ -126,7 +125,7 @@
         		elseif(isset ($actors[0]['type'][2])=='multi')
         			{echo 'checked';}	
         		?> 
-        	> Multi Performers <br></br>
+        	> Multi Performers <br></br><br>
         
         <label for="video_link">Video Link<span calss="small"></span></label> 
         <input type="url" name="video_link" 
@@ -144,7 +143,9 @@
         	echo "";}?></textarea><br></br>
 
 		<label for="joindate">Join Date<span calss="small"></span></label> 
-        <input type="date" name="joindate" 
+        <input type="text" name="joindate" value="" placeholder="MM/DD/YYYY" class="datepicker" /> <br><br>
+
+        <!-- <input type="date" name="joindate" 
         	value="<?/*php 
         	 if(isset ($actors[0]['joindate'])){
         	 	$source = $actors[0]['joindate'];
@@ -152,7 +153,7 @@
 				echo $date->format('Y-m-d'); 
         	 	}
         	 else{
-        	 echo "";}*/?>" /><br></br>
+        	 echo "";}*/?>" /><br></br> -->
 
         <label for="resume">Resume<span calss="small"></span></label> 
         <input type="file" name="resume" 
@@ -178,6 +179,12 @@
         <button type="submit" name="submit">Submit</button> 
 
       </form>  
+      <script>
+        $(function() {
+            $( ".datepicker" ).datepicker();
+            $("button").button();
+        });
+    </script>
 	</div>
 	<div class="spacer"></div>
 </div>

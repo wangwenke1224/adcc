@@ -10,6 +10,7 @@
   echo "\n". link_tag('assets/css/664.css');
   echo "\n". link_tag('assets/css/form.css');
   echo "\n". link_tag('assets/css/news.css');
+  echo "\n". link_tag('assets/css/about.css');
   echo "\n". link_tag('assets/css/custom-theme/jqueryui.css');
 
   echo "\n". link_tag('assets/css/events.css');

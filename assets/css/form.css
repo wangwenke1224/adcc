@@ -5,14 +5,14 @@
 	padding:14px;
 }
 
-label{
+.formDiv label{
 	display:block;
 	text-align:right;
 	width:140px;
 	float:left;
 }
 
-label:after{
+.formDiv label:after{
 	content: "*";
 	color:#dc4704;
 	font-size:14px;
@@ -20,16 +20,17 @@ label:after{
 	margin-left: 2px;
 	/*width:80px;*/
 }
-input, textarea, select{
+.formDiv input:not([type='radio']), textarea, select{
 	float:left;
 	padding:4px 2px;
 	width:200px;
-	margin:2px 0 20px 10px;
+	margin:2px 200px 20px 10px;
 }
 
-textarea{
+.formDiv textarea{
 	height: 120px;
 }
+
 
 button
 {

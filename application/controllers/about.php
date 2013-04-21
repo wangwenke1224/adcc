@@ -1,4 +1,9 @@
 <?php
+// ini_set('display_errors', 'On');
+// ini_set('display_errors', 'On');
+// error_reporting(E_ALL | E_STRICT);
+// require_once('FirePHPCore/FirePHP.class.php');
+// ob_start();
 class About extends CI_Controller {
 
 	public function __construct()
@@ -23,7 +28,7 @@ class About extends CI_Controller {
 		$id = "all_actors";
 		$data['actors'] = $this->about_model->get_actors($id);
 		$data['media'] = $this->about_model->get_media($id);
-		$this->load->helper('video');
+		// $this->load->helper('video');
 		$data['title'] = 'About us';
 
 		$this->load->view('templates/header', $data);
@@ -36,7 +41,7 @@ class About extends CI_Controller {
 		$id = "all_actors";
 		$data['actors'] = $this->about_model->get_actors($id);
 		$data['media'] = $this->about_model->get_media($id);
-		$this->load->helper('video');
+		// $this->load->helper('video');
 		$data['title'] = 'About us';
 
 		$this->load->view('templates/header', $data);
@@ -61,7 +66,7 @@ class About extends CI_Controller {
 
 		
 		// different from here//
-		$this->form_validation->set_rules('name', 'Name', 'required');
+		$this->form_validation->set_rules('firstname', 'First Name', 'required');
 		$this->form_validation->set_rules('contact', 'Contact', 'required');
 
 		if ($this->form_validation->run() === FALSE)
@@ -88,12 +93,12 @@ class About extends CI_Controller {
 		// $firephp = FirePHP::getInstance(true);
  
 		// $var = 'outside';
-		 
-		// $firephp->log($var,'test');
+		// echo $id;
+		// $firephp->log($id,'test');
 		if(isset($id) && !empty($id))
         {
-        	//echo "inside";
-			$this->actors_model->delete_actors($id);
+        	// $firephp->log($id,'test');
+			$this->about_model->delete_actors($id);
 		}
 	}
     	

@@ -21,6 +21,11 @@
 	height: 370px;
 }
 
+#insertbeforMe input, #insertbeforMe textarea
+{
+	margin-right: 0;
+}
+
 h3,h4
 {
 	margin-bottom: 1px;

@@ -6,6 +6,7 @@
 #newEventForm input, #newEventForm select, #newEventForm textarea
 {
 	width: 400px;
+	margin-right: 0;
 }
 
 #newEventForm h3

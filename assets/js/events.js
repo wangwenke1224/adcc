@@ -14,9 +14,9 @@ $(document).ready(function(){
 	$('p#add').click(function(){	
 		number=count+1;
 		$('.programs').append(text);
-		for (var a in this.actors) {
-			$('.chzn-select').append('<option value="'+a["fullname"]+'">'+a["fullname"]+'</option>');
-		};
+		// for (var a in this.actors) {
+		// 	$('.chzn-select').append('<option value="'+a["fullname"]+'">'+a["fullname"]+'</option>');
+		// };
 		count += 1;
 	});
 

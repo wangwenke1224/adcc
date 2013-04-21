@@ -46,6 +46,7 @@ $route['about'] = 'about';
 $route['about/view'] = 'about/view';
 $route['about/pending_view'] = 'about/pending_view';
 $route['about/edit/(:any)'] = 'about/edit/$1';
+$route['about/delete/(:any)'] = 'about/delete/$1';
 $route['about/edit_success'] = 'about/edit_success';
 
 $route['events/create'] = 'events/create';

@@ -13,7 +13,7 @@
   
 <div class="content">
     <div class="formDiv ui-widget-content" id="newEventForm">
-		<h2>Create a news item</h2>
+		<h2>Create a new event</h2>
 
 		<?php echo validation_errors(); 
 			$attributes = array('class' => 'ui-widget'); 
@@ -39,7 +39,7 @@
 				</p>
 			</div>
 
-			<button type="submit">Create news item</button>
+			<button type="submit">Create Event</button>
 	        <button type="submit">Cancel</button>
 
 	        <script>

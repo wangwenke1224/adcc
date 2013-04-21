@@ -26,7 +26,7 @@
 	<label for="title">Article Title</label> 
 	<input type="input" name="title" value="<?=$news_item[0]['title']?>" required/><br />
 
-	<label for="text">Text</label>
+	<label for="text">Text</label><br>
 	<textarea name="text" id="text" class="tinyMce" required><?=$news_item[0]['text']?>
 	</textarea>
 	<script type="text/javascript">
@@ -39,13 +39,13 @@
 <?php
 	}
 	else{
-		echo form_open('news/create') ?>
+		echo form_open('news/create');
 ?>
 	<h2>Post News</h2>
 	<label for="title">Article Title</label> 
 	<input type="input" name="title" required/><br />
 
-	<label for="text">Text</label>
+	<label for="text">Text</label><br>
 	<textarea name="text" class="tinyMce" required>
 	</textarea>
 	<br />

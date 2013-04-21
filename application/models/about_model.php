@@ -1,4 +1,9 @@
 <?php
+ini_set('display_errors', 'On');
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
+require_once('FirePHPCore/FirePHP.class.php');
+ob_start();
 class About_model extends CI_Model {
 
 	public function __construct()
@@ -53,9 +58,14 @@ class About_model extends CI_Model {
 		//$str = $this->input->post('name');
 		//$str=strtolower(str_replace(" ","",$str)); 
 		//$id=$str;
-
+$firephp = FirePHP::getInstance(true);
+		$firephp->log($this->input->post('status'),'status');
+		$firstname=$this->input->post('firstname');
+		$lastname=$this->input->post('lastname');
+		$name=$firstname." ".$lastname;
+		
 		$update_data = array(	
-			'fullname' => $this->input->post('name'),
+			'fullname' => $name,
 			'firstname' => $this->input->post('firstname'),
 			'lastname' => $this->input->post('lastname'),
 			'contact' => $this->input->post('contact'),
@@ -80,7 +90,10 @@ class About_model extends CI_Model {
 
 	public function delete_actors($id)
 	{	
+		// $firephp = FirePHP::getInstance(true);
+		// $firephp->log($id,'model');
 		$this->mongo_db->where(array('_id'=> $id))->delete('actors');
+
 	}
 
 }

@@ -19,6 +19,7 @@ $(document).ready(function(){
                        // i must remove the div
                        $('.deleteActorsConfirm').dialog('close');
                        $('#actors' + id).slideUp('slow');
+                       // alert(baseurl + 'index.php/about/delete/' + id);
                    }
                })
             },
