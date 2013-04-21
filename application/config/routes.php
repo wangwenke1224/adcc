@@ -49,8 +49,9 @@ $route['about/edit/(:any)'] = 'about/edit/$1';
 $route['about/edit_success'] = 'about/edit_success';
 
 $route['events/create'] = 'events/create';
-$route['events/(:any)'] = 'events/view/$1';
-$route['events'] = 'events';
+$route['events/detail/(:any)'] = 'events/view/$1';
+$route['events/(:num)/(:any)'] = 'events/index/$1/$2';
+$route['events'] = 'events/index/$1/$2';
 
 $route['news/insertcomments/(:any)'] = 'news/insertcomments/$1';
 $route['news/edit/(:any)'] = 'news/edit/$1';

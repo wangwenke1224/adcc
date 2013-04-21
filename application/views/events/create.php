@@ -6,41 +6,62 @@
 
 	<div class="side_content">
 	  <?php
-		echo $this->calendar->generate();
+		//echo $this->calendar->generate();
 	  ?>
 	</div>
 </div>
   
 <div class="content">
-	<script>
-        $(function() {
-            $( ".datepicker" ).datepicker();
-        });
-    </script>
+    <div class="formDiv ui-widget-content" id="newEventForm">
+		<h2>Create a news item</h2>
 
-	<h2>Create a news item</h2>
+		<?php echo validation_errors(); 
+			$attributes = array('class' => 'ui-widget'); 
+			echo form_open('events/create',$attributes); 
+		?>
 
-	<?php echo validation_errors(); ?>
+			<label for="name">Name</label> 
+			<input type="input" name="name" /><br>
 
-	<?php echo form_open('events/create') ?>
+			<label for="date">Date</label>
+			<input type="text" name="date" value="" placeholder="MM/DD/YYYY" class="date datepicker" /><br>
 
-		<label for="name">Name</label> 
-		<input type="input" name="name" /><br />
+			<label for="starttime">Start Time</label>
+			<input id="starttime" name="starttime" class="time ui-timepicker-input" type="text" placeholder="hh:mm" autocomplete="off"/><br>
 
-		<label for="date">Date</label>
-		<input type="text" name="date" value="" placeholder="Date of Event" class="datepicker" />
+			<label for="intro">Introduction</label>		
+			<textarea name="text"></textarea><br>
+			<!-- <input type="hidden" value="<?=$actors?>" id="actors"/> -->
+			<div class='programs'>
+				<h3>Programs</h3>
+				<p id='add'>
+				<a href='' class='addProgram' style='font-size:14px;'>Add new program</a>
+				</p>
+			</div>
 
-		<label for="intro">Introduction</label>
-		
-		<textarea name="text"></textarea><br />
-		<h3>Programs</h3>
-		<label for="program">Program</label>
-		<div id="prgrams">
-			<input type="input" name="">
-		</div>
-		<input type="submit" name="submit" value="Create news item" /> 
+			<button type="submit">Create news item</button>
+	        <button type="submit">Cancel</button>
 
-	</form>
+	        <script>
+	        	$( ".datepicker" ).datepicker();
+	        	$('#starttime').timepicker({ 'timeFormat': 'H:i' });
+	        	$(".chzn-select").chosen();
+	        	$( ".addProgram" ).button({
+					icons: {
+					primary: "ui-icon-plus"
+					}
+					})
+	        	$( ".deleteProgram" ).button({
+					icons: {
+					primary: "ui-icon-trash"
+					},
+					text: false
+					})
+				$( "button" ).button();
+			</script> 
+
+		</form>
+    </div>
     
 </div>
 

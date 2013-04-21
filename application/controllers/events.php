@@ -8,8 +8,12 @@ class Events extends CI_Controller {
 		$this->load->helper('url');
 	}
 
-	public function index()
+	public function index($year=null,$month=null)
 	{
+		if(is_null($year)&& is_null($month)){
+			$year=(int)date('Y');
+			$month=(int)date('m');
+		};
 		$data['event'] = $this->event_model->get_event();
 		$data['title'] = 'Upcoming events';
 
@@ -37,5 +41,33 @@ class Events extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('events/view', $data);
 		$this->load->view('templates/footer');
+	}
+
+	public function create()
+	{
+		$this->load->model('about_model');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
+		$data['title'] = 'Create an event item';
+		$data['actors'] = $this->about_model->get_actors("all_actors");
+		$this->form_validation->set_rules('name', 'Name', 'required');
+		$this->form_validation->set_rules('date', 'Date', 'required');
+		$this->form_validation->set_rules('starttime', 'Start Time', 'required');
+		$this->form_validation->set_rules('place', 'Address', 'required');
+		$this->form_validation->set_rules('intro', 'Introduction', 'required');
+		
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('templates/header', $data);	
+			$this->load->view('events/create',$data);			
+			$this->load->view('templates/footer');
+			
+		}
+		else
+		{
+			$id=$this->news_model->set_events();
+			redirect('events/detail/$id', 'refresh');
+		}
 	}
 }

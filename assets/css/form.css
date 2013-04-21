@@ -1,0 +1,38 @@
+.formDiv
+{
+	margin:0 auto;
+	margin-bottom: 100px;
+	padding:14px;
+}
+
+label{
+	display:block;
+	text-align:right;
+	width:140px;
+	float:left;
+}
+
+label:after{
+	content: "*";
+	color:#dc4704;
+	font-size:14px;
+	font-weight:normal;
+	margin-left: 2px;
+	/*width:80px;*/
+}
+input, textarea, select{
+	float:left;
+	padding:4px 2px;
+	width:200px;
+	margin:2px 0 20px 10px;
+}
+
+textarea{
+	height: 120px;
+}
+
+button
+{
+	float: right;
+	margin-left: 5px;
+}

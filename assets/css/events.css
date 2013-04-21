@@ -1,0 +1,34 @@
+#newEventForm
+{
+	height: 800px;
+}
+
+#newEventForm input, #newEventForm select, #newEventForm textarea
+{
+	width: 400px;
+}
+
+#newEventForm h3
+{
+	padding-right: 20px;
+}
+
+#newEventForm .time
+{
+	width: 110px;
+	margin-right: 300px;
+}
+
+#newEventForm .date
+{
+	width: 110px;
+	margin-right: 350px;
+}
+
+.addProgram
+{
+	float: left;
+	height: 35px;
+	margin: 10px 400px 10px 0;
+
+}

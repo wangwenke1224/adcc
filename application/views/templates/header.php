@@ -7,15 +7,21 @@
 <!-- <link href="664.css" rel="stylesheet" type="text/css" /> -->
 <?php
   $this->load->helper('html');
-  echo "\n". link_tag('assets/css/custom-theme/jqueryui.css');
   echo "\n". link_tag('assets/css/664.css');
+  echo "\n". link_tag('assets/css/form.css');
   echo "\n". link_tag('assets/css/news.css');
+  echo "\n". link_tag('assets/css/custom-theme/jqueryui.css');
+
+  echo "\n". link_tag('assets/css/events.css');
+  echo "\n". link_tag('assets/css/jquery.timepicker.css');
+  echo "\n". link_tag('assets/css/chosen.css');
     // echo "\n". link_tag('assets/stylesheets/'. $theme .'.css');
   $this->load->helper('url');
 ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-
+<script type="text/javascript" src="<?=base_url()?>assets/js/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/chosen.jquery.min.js"></script>
 </head>
 
 <body>

@@ -43,9 +43,14 @@
 				echo "<br>";
 			}
 		}
+		else{
+			echo "<div class='commentItem'>";
+			echo "<i>No comment yet. Do you want to be the first one to leave comments?</i>";
+			echo "</div>";
+		}
 	?>
 	</div>
-	<div class="submitComment ui-widget-content" id="insertbeforMe">
+	<div class="formDiv ui-widget-content" id="insertbeforMe">
 		<h3>Leave a Comment</h3>
 		<span style="color:#dc4704;">* is required</span>
 		<?php echo validation_errors(); ?>
