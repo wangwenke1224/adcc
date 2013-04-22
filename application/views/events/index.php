@@ -23,8 +23,13 @@
 </div>
   
 <div class="content">
-	<a href="<?=site_url('events/create')?>">Add</a>
-    <?php 
+
+	<?php 
+		if($this->session->userdata('validated')){
+              	$this->load->helper('url');
+              	// echo "<p><a href=\"".site_url('about/pending_view')."\">Actors-Pending</a></p>";
+              	echo "<a href='".site_url('events/create')."'>Add</a>";
+         }
 
     	$flag = 0;
     	foreach ($event as $event_item): 

@@ -12,6 +12,8 @@ class Events extends CI_Controller {
 		parent::__construct();
 		$this->load->model('event_model');
 		$this->load->helper('url');
+		$this->load->library('encrypt');
+       	$this->load->library('session');
 	}
 
 	public function index($year=2013,$month=04)

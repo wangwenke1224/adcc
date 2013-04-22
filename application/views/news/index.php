@@ -15,7 +15,13 @@
 <div class="content">
 
   <h1>News</h1>
-  <a href="news/create">Add</a>
+    <?php 
+        if($this->session->userdata('validated')){
+                $this->load->helper('url');
+               echo "<a href='".site_url('news/create')."'>Add</a>";
+         }
+    ?>
+
     <?php foreach ($news as $news_item): ?>
         <div id="news<?=$news_item['_id']?>">
             <h2><?php echo $news_item['title'] ?></h2>
@@ -30,7 +36,7 @@
 
             ?>
             <p><a href="news/<?=$news_item['_id']?>">More&gt;&gt;</a></p>
-            <p><a href="news/<?=$news_item['_id']?>">Comments(<?php
+            <p><a href="news/<?=$news_item['_id']?>#comments">Comments(<?php
                 if(isset($news_item['comments']) && !empty($news_item['comments']))
                 {
                     echo count($news_item['comments']);
@@ -38,7 +44,14 @@
                 else echo 0;
 
             ?>)</a></p>
-            <p><a href="<?=$news_item['_id']?>" class="deleteNews">Delete</a><p>
+
+            <?php 
+                if($this->session->userdata('validated')){
+                        $this->load->helper('url');
+                        echo "<p><a href='".$news_item['_id']."' class='deleteNews'>Delete</a></p>";
+                }
+            ?>
+            
             <hr>
         </div>
     <?php endforeach ?>

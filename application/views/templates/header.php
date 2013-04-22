@@ -41,7 +41,10 @@
 <div class="container">
 
   <div class="header"><a href="<?php echo site_url() ?>"><span id="headerImg"></span></a></div>
-  
+  <?php if($this->session->userdata('validated')){
+        $this->load->helper('url');
+        echo "<a id='logout' href=\"".site_url('login_index/do_logout')."\">Logout</a>";
+  }?>
   <div class="menu">
     <ul class="nav">
       <li><a href="<?php echo site_url() ?>">Home</a></li>
@@ -50,9 +53,5 @@
       <li><a href="<?php echo site_url('media') ?>">Media</a></li>
       <li><a href="<?php echo site_url('about') ?>">About</a></li>
       <li><a href="<?php echo site_url('contact') ?>">Contact</a></li>
-      <?php if($this->session->userdata('validated')){
-              $this->load->helper('url');
-              echo "<li><a href=\"".site_url('login_index')."\">Logout</a></li>";
-             }?>
     </ul> 
   </div>

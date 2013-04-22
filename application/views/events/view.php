@@ -34,7 +34,7 @@
     		$datetime = $date ." ".$time;
 		echo '<h2>'.$event_item[0]['name'].'</h2>';
 		echo $datetime;
-		echo "<br>";
+		echo "<br><br>";
 		echo $event_item[0]['intro']; ?>
 		<br> 
 		<br>

@@ -1,25 +1,27 @@
 <div class="side_container">
 
-  <div class="side_head">
-    <p>What is XianSheng?</p>
-  </div>
-  
-</div>
+	<div id="side_block"></div>
+	
+	<div id="side_content">
+		<p>Content</p>
 
-<div class="side_content">
-  <p>Content</p>
+	</div>
 </div>
-  
 <div class="content">
 	<p><a href="<?php 
 	  		$this->load->helper('url');
 	  		echo site_url('news');
 	  	?>">Back to the list</a></p>
-  	<p><a href="<?php 
-  		$this->load->helper('url');
-  		$item = $news_item[0]['_id'];
-  		echo site_url("news/edit/$item");
-  	?>">Edit</a></p>
+  	
+	<?php 
+		if($this->session->userdata('validated')){
+              	$this->load->helper('url');
+              	$item = $news_item[0]['_id'];
+              	echo "<p><a href='".site_url('news/edit').'/'.$item."'>Edit</a></p>";
+              	// echo "<a href='".site_url('events/create')."'>Add</a>";
+         }
+	?>
+
 	<div class="newsContent">
 	<?php
 		echo '<h2>'.$news_item[0]['title'].'</h2>';
@@ -27,6 +29,7 @@
 		echo "<br>";
 		echo $news_item[0]['text']; ?>
 	</div>
+	<a name='comments'></a>
 	<div class="commentsContent">
 	<?php
 		echo "<hr>";
