@@ -50,8 +50,7 @@
 		<?php endforeach ?>
 		
 	</div>
-	
-	<?php echo $video_thumb; ?>
+	<br>
 	
 	<!--'media' contains all retrieved db data, then we call as needed-->
 	<?php foreach ($media as $media_item): ?>

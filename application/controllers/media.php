@@ -57,7 +57,7 @@ class Media extends CI_Controller {
 			
 			$data['images'] = $this->gallery_model->get_images();
 			
-			$data['video_thumb'] = $this->gallery_model->get_youtube('link');
+			//$data['video_thumb'] = $this->gallery_model->get_youtube('link');
 		
 			$this->load->view('templates/header');
 			$this->load->view('media/index', $data);

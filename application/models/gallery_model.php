@@ -12,7 +12,7 @@ class Gallery_model extends CI_Model {
 		
 		// APPPATH sets to the path of application folder
 		// realpath returns full path to folder
-		$this->gallery_path=realpath(APPPATH.'../assets');
+		$this->gallery_path=realpath(APPPATH.'../assets/uploads');
 		//$this->load->helper('url');
 		//$this->gallery_path_url=base_url().'/assets';
 	}
@@ -49,22 +49,22 @@ class Gallery_model extends CI_Model {
 		$this->image_lib->resize();
 	}
 	
-	function get_youtube($url){
-		
-		$youtube = "http://www.youtube.com/oembed?url=". $url ."&format=json";
-		
-		$curl = curl_init($youtube);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-		$return = curl_exec($curl);
-		curl_close($curl);
-		$result = json_decode($return, true);
-		
-		$video_thumb = $result['thumbnail_url'];
-		$video_thumb = str_replace('"\"','',$video_thumb);
-		
-		return $video_thumb;
-		
-	}
+	//function get_youtube($url){
+	//	
+	//	$youtube = "http://www.youtube.com/oembed?url=". $url ."&format=json";
+	//	
+	//	$curl = curl_init($youtube);
+	//	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	//	$return = curl_exec($curl);
+	//	curl_close($curl);
+	//	$result = json_decode($return, true);
+	//	
+	//	$video_thumb = $result['thumbnail_url'];
+	//	$video_thumb = str_replace('"\"','',$video_thumb);
+	//	
+	//	return $video_thumb;
+	//	
+	//}
 
 	public function get_images() {
 		
@@ -75,8 +75,8 @@ class Gallery_model extends CI_Model {
 		
 		foreach ($files as $file) {
 			$images[] = array(
-				'url'=>'../assets/images/' . $file,
-				'thumb_url'=>'../assets/thumbs/' . $file
+				'url'=>'../assets/uploads/images/' . $file,
+				'thumb_url'=>'../assets/uploads/thumbs/' . $file
 			);
 		}
 		
