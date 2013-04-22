@@ -26,10 +26,16 @@
 	margin-right: 350px;
 }
 
-.addProgram
+#addProgram
 {
 	float: left;
 	height: 35px;
 	margin: 10px 400px 10px 0;
 
 }
+
+.deleteProgram
+{
+	margin-left: 10px;
+}
+

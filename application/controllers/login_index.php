@@ -13,7 +13,7 @@
     }
     
     public function index(){
-        
+        $data['title']='Login';
         $this->load->view('templates/header');
         $this->load->view('login/login_success');
         $this->load->view('templates/footer');
