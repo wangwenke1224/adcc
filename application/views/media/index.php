@@ -56,6 +56,7 @@
 	<?php foreach ($media as $media_item): ?>
 
 	    <h2><?php echo $media_item['name'] ?></h2>
+        <p><b>Date: </b><?php echo date('m/d/Y',$media_item['date']->sec) ?></p>
 	    
 	    <!--actors is an array-->
 	    <div id="info">
