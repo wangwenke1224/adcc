@@ -12,7 +12,7 @@
     <p><a href="
     	<?php $this->load->helper('url');
   		echo site_url('about/view');?>
-  		">Actors- Enrolled</a></p>
+  		">Actors</a></p>
    <?php 
     	if($this->session->userdata('validated')){
         	$this->load->helper('url');

@@ -35,6 +35,8 @@ $(document).ready(function(){
             type: "POST",
             success : function(comment){
                 $('#commentForm')[0].reset();
+                $('.nocomment').slideUp('slow');
+                $('.nocomment').remove();
                 $(comment).hide().insertBefore('#insertbeforMe').slideDown('slow');
             }
         })

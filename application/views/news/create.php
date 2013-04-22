@@ -27,7 +27,7 @@
 	<input type="input" name="title" value="<?=$news_item[0]['title']?>" required/><br />
 
 	<label for="text" id='textlabel'>Text</label><br>
-	<textarea name="text" id="text" class="tinyMce" style='float:left;' required><?=$news_item[0]['text']?>
+	<textarea name="text" id="text" class="tinyMce" style="width:80%; height:200px;" required><?=$news_item[0]['text']?>
 	</textarea>
 	<script type="text/javascript">
 		var defaulttext="<?=$news_item[0]['text']?>";

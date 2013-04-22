@@ -40,6 +40,10 @@
 			{
 				echo "<div class='commentItem'>";
 				echo "<h4>".$comment['name'].' says:</h4>';
+				if($this->session->userdata('validated')){
+	              	echo "<p>".$comment['email']."</p>";
+	              	// echo "<a href='".site_url('events/create')."'>Add</a>";
+	         	}
 				echo "<h5>".date('m/d/Y H:i',$comment['date']->sec)."</h5>";
 				echo $comment['text'];
 				echo "</div>";
@@ -47,13 +51,13 @@
 			}
 		}
 		else{
-			echo "<div class='commentItem'>";
+			echo "<div class='commentItem nocomment'>";
 			echo "<i>No comment yet. Do you want to be the first one to leave comments?</i>";
 			echo "</div>";
 		}
 	?>
 	</div>
-	<div class="formDiv ui-widget-content" id="insertbeforMe">
+	<div class="submitComment formDiv ui-widget-content" id="insertbeforMe">
 		<h3>Leave a Comment</h3>
 		<span style="color:#dc4704;">* is required</span>
 		<?php echo validation_errors(); ?>
