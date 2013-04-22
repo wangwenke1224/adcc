@@ -10,6 +10,9 @@ class About extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('about_model'); // call about_model
+		$this->load->helper('url');
+		$this->load->library('encrypt');
+        $this->load->library('session');
 	}
 
 	public function index()
@@ -38,6 +41,9 @@ class About extends CI_Controller {
 
 	public function pending_view()
 	{
+		if(! $this->session->userdata('validated')){
+              redirect('login');}
+              
 		$id = "all_actors";
 		$data['actors'] = $this->about_model->get_actors($id);
 		$data['media'] = $this->about_model->get_media($id);
@@ -52,6 +58,9 @@ class About extends CI_Controller {
 
 	public function edit($id)
 	{
+    	if(! $this->session->userdata('validated')){
+              redirect('login');}
+              
     	$this->load->helper('form');
 		$this->load->library('form_validation');
 

@@ -13,10 +13,11 @@
     	<?php $this->load->helper('url');
   		echo site_url('about/view');?>
   		">Actors- Enrolled</a></p>
-      <p><a href="
-      <?php $this->load->helper('url');
-      echo site_url('about/pending_view');?>
-      ">Actors- Pending</a></p>
+   <?php 
+    	if($this->session->userdata('validated')){
+        	$this->load->helper('url');
+            echo "<p><a href=\"".site_url('about/pending_view')."\">Actors-Pending</a></p>";
+        }?>
     </div>
     
 </div>
@@ -72,15 +73,13 @@
             <?php endforeach ?>
               
 
-              <p><a href="
-                <?php
-                  $this->load->helper('url');
-                  echo site_url('about/edit/'.$actors_item['_id']);
-                ?>
-                 
-                ">Edit</a></p>
-                <p><a href="<?=$actors_item['_id']?>" class="deleteActors">Delete</a><p>
-            
+          
+            <?php if($this->session->userdata('validated')){
+              $this->load->helper('url');
+              echo "<p><a href=\"".site_url('about/edit/'.$actors_item['_id'])."\">Edit</a></p>";
+              echo "<p><a href=\"".$actors_item['_id']."class=\"deleteActors\">Delete</a><p>";
+
+             }?>
               
             <hr>       
     <?php endforeach ?>

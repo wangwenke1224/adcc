@@ -2,6 +2,16 @@
 
 	class Pages extends CI_Controller{
 		
+		public function __construct()
+		{
+			parent::__construct();
+			$this->load->model('about_model'); // call about_model
+			$this->load->helper('url');
+			$this->load->library('encrypt');
+	        $this->load->library('session');
+	      //  $this->check_isvalidated();
+		}
+		
 		public function view($page = 'home'){
 			
 			if (!file_exists('application/views/pages/'.$page.'.php')) {

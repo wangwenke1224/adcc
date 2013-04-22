@@ -39,5 +39,9 @@
       <li><a href="<?php echo site_url('media') ?>">Media</a></li>
       <li><a href="<?php echo site_url('about') ?>">About</a></li>
       <li><a href="<?php echo site_url('contact') ?>">Contact</a></li>
+       <?php if($this->session->userdata('validated')){
+              $this->load->helper('url');
+              echo "<li><a href=\"".site_url('login_index')."\">Logout</a></li>";
+             }?>
     </ul> 
   </div>

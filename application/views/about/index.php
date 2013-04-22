@@ -15,10 +15,11 @@
         <?php $this->load->helper('url');
         echo site_url('about/view');?>
         ">Actors</a></p>
-        <p><a href="
-      <?php $this->load->helper('url');
-      echo site_url('about/pending_view');?>
-      ">Actors- Pending</a></p>
+    <?php 
+    	if($this->session->userdata('validated')){
+        	$this->load->helper('url');
+            echo "<p><a href=\"".site_url('about/pending_view')."\">Actors-Pending</a></p>";
+        }?>
     </div>
     
 </div>
