@@ -24,29 +24,33 @@
   echo "\n". link_tag('assets/css/chosen.css');
     // echo "\n". link_tag('assets/stylesheets/'. $theme .'.css');
   $this->load->helper('url');
+  $year=date('Y');
+  $month=date('m');
 ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/html5gallery/html5gallery.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.timepicker.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assets/js/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="../assets/js/html5gallery/html5gallery.js"></script>
+
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <div class="header"><a href="<?php echo site_url('home') ?>"><span id="headerImg"></span></a></div>
+  <div class="header"><a href="<?php echo site_url() ?>"><span id="headerImg"></span></a></div>
   
   <div class="menu">
     <ul class="nav">
       <li><a href="<?php echo site_url() ?>">Home</a></li>
-      <li><a href="<?php echo site_url('events') ?>">Upcoming Events</a></li>
+      <li><a href="<?php echo site_url('events').'/'.$year.'/'.$month ?>">Upcoming Events</a></li>
       <li><a href="<?php echo site_url('news') ?>">News</a></li>
       <li><a href="<?php echo site_url('media') ?>">Media</a></li>
       <li><a href="<?php echo site_url('about') ?>">About</a></li>
       <li><a href="<?php echo site_url('contact') ?>">Contact</a></li>
-       <?php if($this->session->userdata('validated')){
+      <?php if($this->session->userdata('validated')){
               $this->load->helper('url');
               echo "<li><a href=\"".site_url('login_index')."\">Logout</a></li>";
              }?>
