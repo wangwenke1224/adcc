@@ -52,6 +52,12 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	margin-bottom: -125px;
 }
 
+#headerImg{
+    display:block;
+    height:256px;
+    background:url(../element/header.png) -0 0 no-repeat;
+}
+
 .menu {
 	width: 677px;
 	background: transparent;
@@ -171,8 +177,8 @@ ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your li
 }
 
 ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
-	/* [disabled]background-color: #ADB96E; */
-	color: #FFF;
+	color: #B92C33;
+	font-weight:bold;
 }
 
 .footer {
