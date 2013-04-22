@@ -23,7 +23,7 @@
 </div>
   
 <div class="content">
-	<a href="events/create">Add</a>
+	<a href="<?=site_url('events/create')?>">Add</a>
     <?php 
 
     	$flag = 0;
@@ -41,7 +41,7 @@
 	    	?>
 	    </div>
 	    <div id="main">
-	        <?php echo $event_item['place_id'] ?>
+	        <?php //echo $event_item['place_id'] ?>
 	    </div>
 	    <p><a href="<?php echo site_url('events/detail').'/'.$event_item['_id'] ?>">View event</a></p>
 	    <hr>

@@ -38,6 +38,12 @@
 |
 */
 
+$route['login'] = 'login';
+$route['login_index']='login_index';
+$route['login_index/do_logout']='login_index/do_logout';
+// $login['login_index/login_success']='login_index/login_success';
+$route['login/process']='login/process';
+
 $route['contact'] = 'contact';
 $route['contact/success']='contact/success';
 
