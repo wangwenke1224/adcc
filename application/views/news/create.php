@@ -13,7 +13,7 @@
   
 <div class="content">
 
-
+<div class='formDiv ui-widget-content' id='createNewsForm'>
 
 <?php echo validation_errors(); ?>
 
@@ -26,8 +26,8 @@
 	<label for="title">Article Title</label> 
 	<input type="input" name="title" value="<?=$news_item[0]['title']?>" required/><br />
 
-	<label for="text">Text</label><br>
-	<textarea name="text" id="text" class="tinyMce" required><?=$news_item[0]['text']?>
+	<label for="text" id='textlabel'>Text</label><br>
+	<textarea name="text" id="text" class="tinyMce" style='float:left;' required><?=$news_item[0]['text']?>
 	</textarea>
 	<script type="text/javascript">
 		var defaulttext="<?=$news_item[0]['text']?>";
@@ -35,7 +35,11 @@
 	</script>
 
 	<br />
-	<input type="submit" name="submit" value="Update news item" /> 
+	<button type="submit">Update news item</button>
+	        
+    <script>
+		$( "button" ).button();
+	</script>
 <?php
 	}
 	else{
@@ -45,12 +49,17 @@
 	<label for="title">Article Title</label> 
 	<input type="input" name="title" required/><br />
 
-	<label for="text">Text</label><br>
-	<textarea name="text" class="tinyMce" required>
+	<label for="text" id='textlabel'>Text</label><br>
+	<textarea name="text" class="tinyMce" style="width:80%; height:200px;" required>
 	</textarea>
 	<br />
-	<input type="submit" name="submit" value="Create news item" /> 
+	<button type="submit">Create news item</button>
+	        
+    <script>
+		$( "button" ).button();
+	</script>
 <?php } ?>
 
 </form>
+</div>
 </div>
