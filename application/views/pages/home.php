@@ -13,11 +13,31 @@
         
     <div class="content">
     
-      <img src="assets/element/group.jpg" alt="Group Picture" width="470" height="313">
+      <img src="../assets/element/group.jpg" alt="Group Picture" width="470" height="313">
       <br><br/>
       
       <h1>News</h1>
       
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Except eur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      
+        <?php foreach ($news as $news_item): ?>
+    
+        <div id="news<?=$news_item['_id']?>">
+        
+            <h2><?php echo $news_item['title'] ?></h2>
+            <p><?php echo date('m/d/Y H:i',$news_item['date']->sec) ?></p>      
+        	<?php 
+                $line=$news_item['text'];
+                if (preg_match('/^.{1,150}\b/s', $news_item['text'], $match))
+                {
+                    $line=$match[0];
+                }
+                echo $line.'... '; 
+
+            ?>
+            <p><a href="news/<?=$news_item['_id']?>">More&gt;&gt;</a></p>
+            <br>
+
+            <hr>
+        </div>
+    <?php endforeach ?>
+    
     </div>

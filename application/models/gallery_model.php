@@ -1,10 +1,9 @@
 <?php
 
 class Gallery_model extends CI_Model {
-
-	var $gallery_path;
-	var $gallery_path_url;
 	
+	var $gallery_path;
+	//var $gallery_path_url;
 	// constructor function same name as class
 	// every time media_model loads, this function is called first
 	public function Gallery_model() {
@@ -13,9 +12,9 @@ class Gallery_model extends CI_Model {
 		
 		// APPPATH sets to the path of application folder
 		// realpath returns full path to folder
-		$this->gallery_path=realpath(APPPATH.'../uploads');
+		$this->gallery_path=realpath(APPPATH.'../assets');
 		//$this->load->helper('url');
-		//$this->gallery_path_url=base_url().'images/';
+		//$this->gallery_path_url=base_url().'/assets';
 	}
 
 	public function do_upload() {
@@ -50,17 +49,34 @@ class Gallery_model extends CI_Model {
 		$this->image_lib->resize();
 	}
 	
+	function get_youtube($url){
+		
+		$youtube = "http://www.youtube.com/oembed?url=". $url ."&format=json";
+		
+		$curl = curl_init($youtube);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$return = curl_exec($curl);
+		curl_close($curl);
+		$result = json_decode($return, true);
+		
+		$video_thumb = $result['thumbnail_url'];
+		$video_thumb = str_replace('"\"','',$video_thumb);
+		
+		return $video_thumb;
+		
+	}
+
 	public function get_images() {
 		
 		$files = scandir($this->gallery_path . '/thumbs');
-		$files = array_diff($files, array('.', '..', 'thumbs'));
+		$files = array_diff($files, array('.', '..', '/thumbs'));
 		
 		$images = array();
 		
 		foreach ($files as $file) {
 			$images[] = array(
-				'url'=>$this->gallery_path.$file,
-				'thumb_url'=>$this->gallery_path.'thumbs/'.$file
+				'url'=>'../assets/images/' . $file,
+				'thumb_url'=>'../assets/thumbs/' . $file
 			);
 		}
 		

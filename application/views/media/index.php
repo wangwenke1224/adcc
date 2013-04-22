@@ -24,13 +24,14 @@
 		  </ul> 
 	</div>
 </div>
-  
+
+
 <div class="media_content">
 	<!--not using route to avoid repeated url-->
 	<?php $this->load->helper('url');
-		echo anchor('media/create', 'Add') ?>
-	
-	<div id = "gallery">
+		echo anchor('media/create', 'Add') ?><br /><br />
+
+	<div class="html5gallery" data-skin="darkness" data-width="631" data-height="370" style="display:none;">
 		<?php if(isset($images) && count($images)):
 			foreach($images as $image): ?>
 			
@@ -43,8 +44,14 @@
 		<?php endforeach; else: ?>
 			<div id="blank_gallery"> Please upload an Image </div>
 		<?php endif; ?>
+		
+		<?php foreach ($media as $media_item): ?>
+			<?php echo $media_item['link']; ?>
+		<?php endforeach ?>
+		
 	</div>
 	
+	<?php echo $video_thumb; ?>
 	
 	<!--'media' contains all retrieved db data, then we call as needed-->
 	<?php foreach ($media as $media_item): ?>
@@ -70,6 +77,7 @@
 	<?php endforeach ?>
     
 </div>
+
 
 
 

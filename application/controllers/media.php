@@ -49,12 +49,16 @@ class Media extends CI_Controller {
 		else {
 			$data['media'] = $this->media_model->set_media();
 			$data['media'] = $this->media_model->get_media();
+			
 			if ($this->input->post('upload')) {
 				// let the method do_upload inside Gallery_model do all the work
 				$this->gallery_model->do_upload();
 			}
+			
 			$data['images'] = $this->gallery_model->get_images();
 			
+			$data['video_thumb'] = $this->gallery_model->get_youtube('link');
+		
 			$this->load->view('templates/header');
 			$this->load->view('media/index', $data);
 			$this->load->view('templates/footer');

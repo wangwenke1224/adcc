@@ -38,23 +38,11 @@
 	
 	<!--File uploads require a multipart form-->
 	<?php /*echo form_open_multipart('media/gallery');*/
-	
 		echo form_upload('userfile');
 		echo "\n";
 		echo form_submit('upload', 'Create Media Item');
 		echo form_close()
 	?>
-		
-		<!--Photo<br><input type="file" name="userfile" size="20" /><br />		
-		<br />-->
-		
-		<!--shell_exec("ffmpeg -i ".$video_url."  -y -an -sameq -f image2 -s 400x270 path/of/thumb/mythumb.jpg");-->
-		
-		<!--<h3>Programs</h3>-->
-		<!--<label for="program">Program</label>
-		<div id="programs"><input type="input" name=""></div>-->
-		
-		<!--<input type="submit" name="submit" value="Create Media Item" /> -->
 
 	</form>
     
