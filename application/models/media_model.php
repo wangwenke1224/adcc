@@ -15,7 +15,7 @@ class Media_model extends CI_Model {
 		if ($id === FALSE)
 		{
 			//fetching the media table
-			$query = $this->mongo_db->get('media');
+			$query = $this->mongo_db->order_by(array('date' => -1))->get('media');
 			return $query;
 		}
 		
@@ -40,12 +40,6 @@ class Media_model extends CI_Model {
 		);
 		
 		return $this->mongo_db->insert('media', $data);
-	}
-	
-	public function get_programs($media)
-	{
-		$query = $this->mongo_db->where_in('_id', $media['program_id'])->get('program_id');
-		return $query;
 	}
 	
 	public function get_actors($media)
